@@ -134,43 +134,42 @@ https://script.google.com/macros/s/AKfycbzTicnLhvKI7ojy0mkf0VE_OP0AtFVQ5KeOt2eky
     const btnText = document.getElementById('btnText');
 
     async function handleSubmit(event) {
-      event.preventDefault();
+  event.preventDefault();
 
-      if (!form.checkValidity()) {
-        form.classList.add('was-validated');
-        return;
-      }
+  if (!form.checkValidity()) {
+    form.classList.add('was-validated');
+    return;
+  }
 
-      spinner.classList.remove('d-none');
-      btnText.textContent = 'Submitting...';
+  spinner.classList.remove('d-none');
+  btnText.textContent = 'Submitting...';
 
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+  const formData = new FormData(form);
 
-      const webhookURL = "https://script.google.com/macros/s/AKfycbzTicnLhvKI7ojy0mkf0VE_OP0AtFVQ5KeOt2ekye4rv052mxZJNRxU-wxGCWlUOIlqxg/exec"; // Replace with Apps Script URL
+  const webhookURL = "https://script.google.com/macros/s/AKfycbzTicnLhvKI7ojy0mkf0VE_OP0AtFVQ5KeOt2ekye4rv052mxZJNRxU-wxGCWlUOIlqxg/exec";
 
-      try {
-        const response = await fetch(webhookURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
+  try {
+    const response = await fetch(webhookURL, {
+      method: "POST",
+      body: formData // ✅ This avoids CORS preflight!
+      // No headers at all!
+    });
 
-        if (response.ok) {
-          alert("Form submitted successfully!");
-          form.reset();
-          form.classList.remove('was-validated');
-        } else {
-          alert("Submission failed. Please try again.");
-        }
-      } catch (err) {
-        alert("Something went wrong.");
-        console.error(err);
-      } finally {
-        spinner.classList.add('d-none');
-        btnText.textContent = 'Submit Form';
-      }
+    if (response.ok) {
+      alert("Form submitted successfully!");
+      form.reset();
+      form.classList.remove('was-validated');
+    } else {
+      alert("Submission failed. Please try again.");
     }
+  } catch (err) {
+    alert("Something went wrong.");
+    console.error(err);
+  } finally {
+    spinner.classList.add('d-none');
+    btnText.textContent = 'Submit Form';
+  }
+}
   </script>
 </body>
 </html>
