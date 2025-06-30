@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form Submission</title>
+  <title>Styled Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     async function handleSubmit(event) {
       event.preventDefault();
-
       const form = event.target;
       const data = {
         pan: form.pan.value,
@@ -24,14 +24,12 @@
         nomineePan: form.nomineePan.value
       };
 
-      const webhookURL = "YOUR_SCRIPT_URL_HERE"; // Replace with your Apps Script URL
+      const webhookURL = "https://script.google.com/macros/s/AKfycbwUJVsOIKDYQ-mv2h5PCgNqJHGh7GUJyDm7gbsZRPfdx3FsRMJwz6UAkrQlRfqI0FpAQw/exec";
 
       try {
         const response = await fetch(webhookURL, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
         });
 
@@ -48,24 +46,39 @@
     }
   </script>
 </head>
-<body>
-  <h2>Account Registration Form</h2>
-  <form onsubmit="handleSubmit(event)">
-    <label>PAN: <input type="text" name="pan" required></label><br><br>
-    <label>First Name: <input type="text" name="firstName" required></label><br><br>
-    <label>Last Name: <input type="text" name="lastName" required></label><br><br>
-    <label>Aadhaar No: <input type="text" name="aadhaar" required></label><br><br>
-    <label>Address:<br><textarea name="address" required></textarea></label><br><br>
-    <label>Date of Birth: <input type="date" name="dob" required></label><br><br>
-    <label>Bank Name: <input type="text" name="bankName" required></label><br><br>
-    <label>Account No: <input type="text" name="accountNo" required></label><br><br>
-    <label>IFSC Code: <input type="text" name="ifsc" required></label><br><br>
-    <label>Email Address: <input type="email" name="email" required></label><br><br>
-    <label>Mobile No: <input type="tel" name="mobile" required></label><br><br>
-    <label>Nominee Name: <input type="text" name="nomineeName" required></label><br><br>
-    <label>Nominee DOB: <input type="date" name="nomineeDob" required></label><br><br>
-    <label>Nominee PAN number: <input type="text" name="nomineePan" required></label><br><br>
-    <button type="submit">Submit</button>
-  </form>
+<body class="bg-gray-100 py-10">
+  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 text-center">Account Registration Form</h2>
+    <form onsubmit="handleSubmit(event)" class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input class="input" name="pan" placeholder="PAN" required />
+        <input class="input" name="firstName" placeholder="First Name" required />
+        <input class="input" name="lastName" placeholder="Last Name" required />
+        <input class="input" name="aadhaar" placeholder="Aadhaar No" required />
+        <input class="input" name="dob" type="date" placeholder="DOB" required />
+        <input class="input" name="bankName" placeholder="Bank Name" required />
+        <input class="input" name="accountNo" placeholder="Account No" required />
+        <input class="input" name="ifsc" placeholder="IFSC Code" required />
+        <input class="input" name="email" type="email" placeholder="Email Address" required />
+        <input class="input" name="mobile" type="tel" placeholder="Mobile No" required />
+        <input class="input" name="nomineeName" placeholder="Nominee Name" required />
+        <input class="input" name="nomineeDob" type="date" placeholder="Nominee DOB" required />
+        <input class="input" name="nomineePan" placeholder="Nominee PAN number" required />
+      </div>
+      <textarea class="input w-full mt-4" name="address" rows="3" placeholder="Address" required></textarea>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <style>
+    .input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+  </style>
 </body>
 </html>
