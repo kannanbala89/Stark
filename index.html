@@ -1,41 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Submission</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
+  <script>
+    async function handleSubmit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const data = {
+        pan: form.pan.value,
+        firstName: form.firstName.value,
+        lastName: form.lastName.value,
+        aadhaar: form.aadhaar.value,
+        address: form.address.value,
+        dob: form.dob.value,
+        bankName: form.bankName.value,
+        accountNo: form.accountNo.value,
+        ifsc: form.ifsc.value,
+        email: form.email.value,
+        mobile: form.mobile.value,
+        nomineeName: form.nomineeName.value,
+        nomineeDob: form.nomineeDob.value,
+        nomineePan: form.nomineePan.value
+      };
+
+      const webhookURL = "YOUR_SCRIPT_URL_HERE"; // Replace with your Apps Script URL
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert("Form submitted successfully!");
+          form.reset();
+        } else {
+          alert("Submission failed.");
+        }
+      } catch (err) {
+        alert("Error submitting form.");
+        console.error(err);
+      }
     }
-    .form-container {
-      width: 100%;
-      max-width: 800px;
-      margin-top: 50px;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    iframe {
-      width: 100%;
-      height: 1000px;
-      border: none;
-    }
-  </style>
+  </script>
 </head>
 <body>
-  <div class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScXGt1i6SNWWyEF2bmYpmlsdp0gT2NkQZ3DDCpn2jTFYfByLg/viewform?embedded=true" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0">
-      Loading…
-    </iframe>
-  </div>
+  <h2>Account Registration Form</h2>
+  <form onsubmit="handleSubmit(event)">
+    <label>PAN: <input type="text" name="pan" required></label><br><br>
+    <label>First Name: <input type="text" name="firstName" required></label><br><br>
+    <label>Last Name: <input type="text" name="lastName" required></label><br><br>
+    <label>Aadhaar No: <input type="text" name="aadhaar" required></label><br><br>
+    <label>Address:<br><textarea name="address" required></textarea></label><br><br>
+    <label>Date of Birth: <input type="date" name="dob" required></label><br><br>
+    <label>Bank Name: <input type="text" name="bankName" required></label><br><br>
+    <label>Account No: <input type="text" name="accountNo" required></label><br><br>
+    <label>IFSC Code: <input type="text" name="ifsc" required></label><br><br>
+    <label>Email Address: <input type="email" name="email" required></label><br><br>
+    <label>Mobile No: <input type="tel" name="mobile" required></label><br><br>
+    <label>Nominee Name: <input type="text" name="nomineeName" required></label><br><br>
+    <label>Nominee DOB: <input type="date" name="nomineeDob" required></label><br><br>
+    <label>Nominee PAN number: <input type="text" name="nomineePan" required></label><br><br>
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
