@@ -9,9 +9,14 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
   <style>
-    /* Background image styling */
     body {
       margin: 0;
       padding: 0;
@@ -20,9 +25,8 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
       font-family: 'Segoe UI', sans-serif;
     }
 
-    /* Glass effect */
     .glass-card {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.88);
       border-radius: 1rem;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(10px);
@@ -73,13 +77,13 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
 </head>
 <body>
   <div class="container py-5">
-    <div class="glass-card p-4 mx-auto" style="max-width: 950px;">
-      <h2 class="text-center text-primary mb-4"><i class="fa-solid fa-user-plus me-2"></i>Account Registration</h2>
+    <div class="glass-card p-4 mx-auto" style="max-width: 950px;" data-aos="fade-up">
+      <h2 class="text-center text-primary mb-4" data-aos="fade-down"><i class="fa-solid fa-user-plus me-2"></i>Account Registration</h2>
       <form id="registrationForm" onsubmit="handleSubmit(event)" novalidate>
 
         <!-- Personal Details -->
-        <div class="form-section-title"><i class="fa-solid fa-id-card me-2"></i>Personal Details</div>
-        <div class="row g-3">
+        <div class="form-section-title" data-aos="fade-right"><i class="fa-solid fa-id-card me-2"></i>Personal Details</div>
+        <div class="row g-3" data-aos="fade-up">
           <div class="col-md-6 form-floating">
             <input name="pan" id="pan" class="form-control" placeholder="PAN" required />
             <label for="pan">PAN</label>
@@ -107,8 +111,8 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
         </div>
 
         <!-- Bank Details -->
-        <div class="form-section-title"><i class="fa-solid fa-building-columns me-2"></i>Bank Details</div>
-        <div class="row g-3">
+        <div class="form-section-title" data-aos="fade-left"><i class="fa-solid fa-building-columns me-2"></i>Bank Details</div>
+        <div class="row g-3" data-aos="fade-up">
           <div class="col-md-6 form-floating">
             <input name="bankName" id="bankName" class="form-control" placeholder="Bank Name" required />
             <label for="bankName">Bank Name</label>
@@ -124,8 +128,8 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
         </div>
 
         <!-- Contact Info -->
-        <div class="form-section-title"><i class="fa-solid fa-envelope me-2"></i>Contact Information</div>
-        <div class="row g-3">
+        <div class="form-section-title" data-aos="fade-right"><i class="fa-solid fa-envelope me-2"></i>Contact Information</div>
+        <div class="row g-3" data-aos="fade-up">
           <div class="col-md-6 form-floating">
             <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
             <label for="email">Email</label>
@@ -137,8 +141,8 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
         </div>
 
         <!-- Nominee -->
-        <div class="form-section-title"><i class="fa-solid fa-user-shield me-2"></i>Nominee Details</div>
-        <div class="row g-3">
+        <div class="form-section-title" data-aos="fade-left"><i class="fa-solid fa-user-shield me-2"></i>Nominee Details</div>
+        <div class="row g-3" data-aos="fade-up">
           <div class="col-md-6 form-floating">
             <input name="nomineeName" id="nomineeName" class="form-control" placeholder="Nominee Name" required />
             <label for="nomineeName">Nominee Name</label>
@@ -154,7 +158,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
         </div>
 
         <!-- Submit -->
-        <div class="d-grid mt-4">
+        <div class="d-grid mt-4" data-aos="zoom-in">
           <button id="submitBtn" class="btn btn-primary btn-lg" type="submit">
             <span id="spinner" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
             <span id="btnText">Submit Form</span>
@@ -165,10 +169,17 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
   </div>
 
   <div class="footer-note">
-    &copy; 2025 A3 Stark Investments. Designed with Bootstrap & ❤️
+    &copy; 2025 A3 Stark Investments. Designed with Bootstrap & AOS.
   </div>
 
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
     const form = document.getElementById('registrationForm');
     const spinner = document.getElementById('spinner');
     const btnText = document.getElementById('btnText');
@@ -185,7 +196,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
       btnText.textContent = 'Submitting...';
 
       const formData = new FormData(form);
-      const webhookURL = "https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbAA24lJuvkNgeeAXrxG83N19Kz0rT1g/exec"; // Replace with your actual Apps Script URL
+      const webhookURL = "https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbAA24lJuvkNgeeAXrxG83N19Kz0rT1g/exec"; // Replace with your Apps Script URL
 
       try {
         const response = await fetch(webhookURL, {
