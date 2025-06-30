@@ -1,7 +1,10 @@
+<!--const webhookURL = "https://script.google.com/macros/s/AKfycbwUJVsOIKDYQ-mv2h5PCgNqJHGh7GUJyDm7gbsZRPfdx3FsRMJwz6UAkrQlRfqI0FpAQw/exec";-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Styled Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Account Registration Form</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     async function handleSubmit(event) {
@@ -24,7 +27,7 @@
         nomineePan: form.nomineePan.value
       };
 
-      const webhookURL = "https://script.google.com/macros/s/AKfycbwUJVsOIKDYQ-mv2h5PCgNqJHGh7GUJyDm7gbsZRPfdx3FsRMJwz6UAkrQlRfqI0FpAQw/exec";
+     const webhookURL = "https://script.google.com/macros/s/AKfycbwUJVsOIKDYQ-mv2h5PCgNqJHGh7GUJyDm7gbsZRPfdx3FsRMJwz6UAkrQlRfqI0FpAQw/exec";
 
       try {
         const response = await fetch(webhookURL, {
@@ -46,39 +49,83 @@
     }
   </script>
 </head>
-<body class="bg-gray-100 py-10">
-  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
-    <h2 class="text-2xl font-bold mb-6 text-center">Account Registration Form</h2>
-    <form onsubmit="handleSubmit(event)" class="space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input class="input" name="pan" placeholder="PAN" required />
-        <input class="input" name="firstName" placeholder="First Name" required />
-        <input class="input" name="lastName" placeholder="Last Name" required />
-        <input class="input" name="aadhaar" placeholder="Aadhaar No" required />
-        <input class="input" name="dob" type="date" placeholder="DOB" required />
-        <input class="input" name="bankName" placeholder="Bank Name" required />
-        <input class="input" name="accountNo" placeholder="Account No" required />
-        <input class="input" name="ifsc" placeholder="IFSC Code" required />
-        <input class="input" name="email" type="email" placeholder="Email Address" required />
-        <input class="input" name="mobile" type="tel" placeholder="Mobile No" required />
-        <input class="input" name="nomineeName" placeholder="Nominee Name" required />
-        <input class="input" name="nomineeDob" type="date" placeholder="Nominee DOB" required />
-        <input class="input" name="nomineePan" placeholder="Nominee PAN number" required />
+<body class="bg-gray-100 min-h-screen flex items-center justify-center py-10 px-4">
+  <div class="w-full max-w-4xl bg-white p-8 rounded-2xl shadow-xl">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">Account Registration Form</h2>
+    <form onsubmit="handleSubmit(event)" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">PAN</label>
+          <input type="text" name="pan" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">First Name</label>
+          <input type="text" name="firstName" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Last Name</label>
+          <input type="text" name="lastName" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Aadhaar No</label>
+          <input type="text" name="aadhaar" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Date of Birth</label>
+          <input type="date" name="dob" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Bank Name</label>
+          <input type="text" name="bankName" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Account Number</label>
+          <input type="text" name="accountNo" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">IFSC Code</label>
+          <input type="text" name="ifsc" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+          <input type="email" name="email" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Mobile Number</label>
+          <input type="tel" name="mobile" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Nominee Name</label>
+          <input type="text" name="nomineeName" required class="input" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Nominee DOB</label>
+          <input type="date" name="nomineeDob" required class="input" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Nominee PAN Number</label>
+          <input type="text" name="nomineePan" required class="input" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Address</label>
+          <textarea name="address" rows="3" required class="input"></textarea>
+        </div>
       </div>
-      <textarea class="input w-full mt-4" name="address" rows="3" placeholder="Address" required></textarea>
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
-        Submit
-      </button>
+      <div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+          Submit
+        </button>
+      </div>
     </form>
   </div>
 
   <style>
     .input {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      width: 100%;
+      @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
     }
   </style>
+</body>
+</html>
+
 </body>
 </html>
