@@ -84,7 +84,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
           <div class="col-md-6 form-floating">
             <input name="aadhaar" id="aadhaar" class="form-control" placeholder="Aadhaar No" required pattern="\d{12}" maxlength="12" title="12-digit Aadhaar" />
             <label for="aadhaar">Aadhaar No</label>
-              <div class="invalid-feedback">Enter valid PAN (ABCDE1234F)</div>
+              <div class="invalid-feedback">Enter a valid 12-digit Aadhaar number</div>
           </div>
           <div class="col-md-6 form-floating">
             <input type="date" name="dob" id="dob" class="form-control" required />
@@ -110,6 +110,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
           <div class="col-md-6 form-floating">
             <input name="ifsc" id="ifsc" class="form-control" required pattern="^[A-Z]{4}0[A-Z0-9]{6}$" title="Format: SBIN0001234" />
             <label for="ifsc">IFSC Code</label>
+            <div class="invalid-feedback">Enter valid IFSC Code</div>
           </div>
         </div>
 
@@ -123,6 +124,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
           <div class="col-md-6 form-floating">
             <input type="tel" name="mobile" id="mobile" class="form-control" required pattern="^[6-9]\d{9}$" title="Starts with 6–9, 10 digits" />
             <label for="mobile">Mobile</label>
+              <div class="invalid-feedback">Enter valid Mobile No</div>
           </div>
         </div>
 
@@ -140,6 +142,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
           <div class="col-md-6 form-floating">
             <input name="nomineePan" id="nomineePan" class="form-control" required pattern="[A-Z]{5}[0-9]{4}[A-Z]" maxlength="10" title="PAN format: ABCDE1234F" />
             <label for="nomineePan">Nominee PAN</label>
+              <div class="invalid-feedback">Enter valid PAN (ABCDE1234F)</div>
           </div>
         </div>
 
