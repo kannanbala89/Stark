@@ -154,6 +154,22 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
             <label for="aadhaar">Nominee Aadhaar No</label>
               <div class="invalid-feedback">Enter a valid 12-digit Aadhaar number</div>
           </div>
+          <div class="col-md-6 form-floating">
+    <input name="nomineeAadhaar" id="nomineeAadhaar" class="form-control" placeholder="Nominee Aadhaar No" required pattern="\d{12}" maxlength="12" title="12-digit Aadhaar" />
+    <label for="nomineeAadhaar">Nominee Aadhaar No</label>
+    <div class="invalid-feedback">Enter a valid 12-digit Aadhaar</div>
+  </div>
+
+  <div class="col-md-6 form-floating">
+    <input type="email" name="nomineeEmail" id="nomineeEmail" class="form-control" placeholder="Nominee Email" required />
+    <label for="nomineeEmail">Nominee Email</label>
+  </div>
+
+  <div class="col-md-6 form-floating">
+    <input type="tel" name="nomineeMobile" id="nomineeMobile" class="form-control" placeholder="Nominee Mobile" required pattern="^[6-9]\d{9}$" maxlength="10" title="Starts with 6–9, 10 digits" />
+    <label for="nomineeMobile">Nominee Mobile</label>
+    <div class="invalid-feedback">Enter a valid mobile number</div>
+  </div>
         </div>
     <!-- Nominee Contact -->
         <div class="form-section-title" data-aos="fade-right">Nominee Contact Information</div>
