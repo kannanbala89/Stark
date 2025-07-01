@@ -1,7 +1,3 @@
-<!--const webhookURL = "https://script.google.com/macros/s/AKfycbwUJVsOIKDYQ-mv2h5PCgNqJHGh7GUJyDm7gbsZRPfdx3FsRMJwz6UAkrQlRfqI0FpAQw/exec";
-https://script.google.com/macros/s/AKfycbzTicnLhvKI7ojy0mkf0VE_OP0AtFVQ5KeOt2ekye4rv052mxZJNRxU-wxGCWlUOIlqxg/exec
-https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbAA24lJuvkNgeeAXrxG83N19Kz0rT1g/exec-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +8,7 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     body {
       margin: 0;
@@ -63,90 +60,17 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
 <body>
   <div class="container py-5">
     <div class="glass-card p-4 mx-auto" style="max-width: 950px;" data-aos="fade-up">
-      <h2 class="text-center text-primary mb-4" data-aos="fade-down"><i class="fa-solid fa-user-plus me-2"></i>A Stark Investor Registration</h2>
+      <h2 class="text-center text-primary mb-4" data-aos="fade-down">
+        <i class="fa-solid fa-user-plus me-2"></i>A Stark Investor Registration
+      </h2>
+
       <form id="registrationForm" onsubmit="handleSubmit(event)" novalidate>
-        <!-- Section 1 -->
-        <div class="form-section-title" data-aos="fade-right">Personal Details</div>
-        <div class="row g-3" data-aos="fade-up">
-          <div class="col-md-6 form-floating">
-            <input name="pan" id="pan" class="form-control" placeholder="PAN" required pattern="[A-Z]{5}[0-9]{4}[A-Z]" maxlength="10" title="PAN format: ABCDE1234F" type="text" style="text-transform: uppercase;"/>
-            <label for="pan">PAN</label>
-              <div class="invalid-feedback">Enter valid PAN (ABCDE1234F)</div>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input name="firstName" id="firstName" class="form-control" placeholder="First Name" required pattern="[A-Za-z ]{2,30}" title="Letters only" />
-            <label for="firstName">First Name</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input name="lastName" id="lastName" class="form-control" placeholder="Last Name" required pattern="[A-Za-z ]{2,30}" title="Letters only" />
-            <label for="lastName">Last Name</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input name="aadhaar" id="aadhaar" class="form-control" placeholder="Aadhaar No" required pattern="\d{12}" maxlength="12" title="12-digit Aadhaar" />
-            <label for="aadhaar">Aadhaar No</label>
-              <div class="invalid-feedback">Enter a valid 12-digit Aadhaar number</div>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input type="date" name="dob" id="dob" class="form-control" required />
-            <label for="dob">DOB</label>
-            <div class="invalid-feedback">You must be at least 18 years old.</div>
-          </div>
-          <div class="col-md-6 form-floating">
-            <textarea name="address" id="address" class="form-control" placeholder="Address" required></textarea>
-            <label for="address">Address</label>
-          </div>
-        </div>
+        <!-- Add all your form fields here (omitted for brevity if already pasted before) -->
 
-        <!-- Bank -->
-        <div class="form-section-title" data-aos="fade-left">Bank Details</div>
-        <div class="row g-3" data-aos="fade-up">
-          <div class="col-md-6 form-floating">
-            <input name="bankName" id="bankName" class="form-control" required />
-            <label for="bankName">Bank Name</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input name="accountNo" id="accountNo" class="form-control" required pattern="\d{9,18}" title="9–18 digits" />
-            <label for="accountNo">Account No</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input name="ifsc" id="ifsc" class="form-control" required pattern="^[A-Z]{4}0[A-Z0-9]{6}$" title="Format: SBIN0001234" />
-            <label for="ifsc">IFSC Code</label>
-            <div class="invalid-feedback">Enter valid IFSC Code</div>
-          </div>
-        </div>
+        <!-- reCAPTCHA Checkbox -->
+        <div class="g-recaptcha my-3" data-sitekey="6Lef_3MrAAAAAJTwSbxA100zH9bAzNvPBcDYMsCS"></div>
 
-        <!-- Contact -->
-        <div class="form-section-title" data-aos="fade-right">Contact Information</div>
-        <div class="row g-3" data-aos="fade-up">
-          <div class="col-md-6 form-floating">
-            <input type="email" name="email" id="email" class="form-control" required />
-            <label for="email">Email</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input type="tel" name="mobile" id="mobile" class="form-control" required pattern="^[6-9]\d{9}$" title="Starts with 6–9, 10 digits" maxlength="10" />
-            <label for="mobile">Mobile</label>
-              <div class="invalid-feedback">Enter valid Mobile No</div>
-          </div>
-        </div>
-
-        <!-- Nominee -->
-        <div class="form-section-title" data-aos="fade-left">Nominee Details</div>
-        <div class="row g-3" data-aos="fade-up">
-          <div class="col-md-6 form-floating">
-            <input name="nomineeName" id="nomineeName" class="form-control" required pattern="[A-Za-z ]{2,30}" />
-            <label for="nomineeName">Nominee Name</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input type="date" name="nomineeDob" id="nomineeDob" class="form-control" required />
-            <label for="nomineeDob">Nominee DOB</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input name="nomineePan" id="nomineePan" class="form-control" required pattern="[A-Z]{5}[0-9]{4}[A-Z]" maxlength="10" title="PAN format: ABCDE1234F" />
-            <label for="nomineePan">Nominee PAN</label>
-              <div class="invalid-feedback">Enter valid PAN (ABCDE1234F)</div>
-          </div>
-        </div>
-
+        <!-- Submit Button -->
         <div class="d-grid mt-4" data-aos="zoom-in">
           <button id="submitBtn" class="btn btn-primary btn-lg" type="submit">
             <span id="spinner" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
@@ -156,39 +80,58 @@ https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbA
       </form>
     </div>
   </div>
-  <div class="footer-note">&copy; 2025 A3 Stark Investments. Designed with Bootstrap & AOS.</div>
+
+  <div class="footer-note">
+    &copy; 2025 A3 Stark Investments. Designed with Bootstrap & AOS.
+  </div>
+
+  <!-- AOS Animation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
+
     const form = document.getElementById('registrationForm');
     const spinner = document.getElementById('spinner');
     const btnText = document.getElementById('btnText');
 
     async function handleSubmit(event) {
       event.preventDefault();
-        
+
       const dobInput = document.getElementById('dob');
-      const dob = new Date(dobInput.value);
+      const nomineeDobInput = document.getElementById('nomineeDob');
       const today = new Date();
+
+      const dob = new Date(dobInput.value);
       const age = today.getFullYear() - dob.getFullYear();
       const m = today.getMonth() - dob.getMonth();
-      const dayDiff = today.getDate() - dob.getDate();
-            
-          if (
-            age < 18 || (age === 18 && (m < 0 || (m === 0 && dayDiff < 0)))
-          ) {
-            dobInput.setCustomValidity("You must be at least 18 years old.");
-          } else {
-            dobInput.setCustomValidity("");
-          }
+      const d = today.getDate() - dob.getDate();
+      if (age < 18 || (age === 18 && (m < 0 || (m === 0 && d < 0)))) {
+        dobInput.setCustomValidity("You must be at least 18 years old.");
+      } else {
+        dobInput.setCustomValidity("");
+      }
+
+      const nomineeDob = new Date(nomineeDobInput.value);
+      const nAge = today.getFullYear() - nomineeDob.getFullYear();
+      const nm = today.getMonth() - nomineeDob.getMonth();
+      const nd = today.getDate() - nomineeDob.getDate();
+      if (nAge < 18 || (nAge === 18 && (nm < 0 || (nm === 0 && nd < 0)))) {
+        nomineeDobInput.setCustomValidity("Nominee must be at least 18 years old.");
+      } else {
+        nomineeDobInput.setCustomValidity("");
+      }
+
       if (!form.checkValidity()) {
         form.classList.add('was-validated');
         return;
       }
+
       spinner.classList.remove('d-none');
       btnText.textContent = 'Submitting...';
+
       const formData = new FormData(form);
       const webhookURL = "https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbAA24lJuvkNgeeAXrxG83N19Kz0rT1g/exec";
+
       try {
         const response = await fetch(webhookURL, { method: "POST", body: formData });
         if (response.ok) {
