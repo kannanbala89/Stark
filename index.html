@@ -150,20 +150,25 @@ https://script.google.com/macros/s/AKfycbzXubrlbGP5NG9_cutdf7k-tMOKP8Tsqr4gb2wDV
             <label for="nomineePan">Nominee PAN</label>
               <div class="invalid-feedback">Enter valid PAN (ABCDE1234F)</div>
           </div>
-            <div class="col-md-6 form-floating">
-            <input name="nomineeaadhaar" id="nomineeaadhaar" class="form-control" required pattern="\d{12}" maxlength="12" title="12-digit Aadhaar" />
-            <label for="aadhaar">Nominee Aadhaar No</label>
-              <div class="invalid-feedback">Enter a valid 12-digit Aadhaar number</div>
-            </div>
-          <div class="col-md-6 form-floating">
-            <input type="email" name="nomineeemail" id="email" class="form-control" required />
-            <label for="email">Nominee Email</label>
-          </div>
-          <div class="col-md-6 form-floating">
-            <input type="tel" name="nomineemobile" id="mobile" class="form-control" required pattern="^[6-9]\d{9}$" title="Starts with 6–9, 10 digits" maxlength="10" />
-            <label for="mobile">Nominee Mobile</label>
-              <div class="invalid-feedback">Enter valid Mobile No</div>
-          </div>
+      <!-- Nominee Aadhaar -->
+<div class="col-md-6 form-floating">
+  <input name="nomineeAadhaar" id="nomineeAadhaar" class="form-control" required pattern="\d{12}" maxlength="12" title="12-digit Aadhaar" />
+  <label for="nomineeAadhaar">Nominee Aadhaar No</label>
+  <div class="invalid-feedback">Enter a valid 12-digit Aadhaar number</div>
+</div>
+
+<!-- Nominee Email -->
+<div class="col-md-6 form-floating">
+  <input type="email" name="nomineeEmail" id="nomineeEmail" class="form-control" required />
+  <label for="nomineeEmail">Nominee Email</label>
+</div>
+
+<!-- Nominee Mobile -->
+<div class="col-md-6 form-floating">
+  <input type="tel" name="nomineeMobile" id="nomineeMobile" class="form-control" required pattern="^[6-9]\d{9}$" title="Starts with 6–9, 10 digits" maxlength="10" />
+  <label for="nomineeMobile">Nominee Mobile</label>
+  <div class="invalid-feedback">Enter valid Mobile No</div>
+</div>
         </div>
         
         <div class="d-grid mt-4" data-aos="zoom-in">
