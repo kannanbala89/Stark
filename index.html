@@ -207,7 +207,7 @@ https://script.google.com/macros/s/AKfycbzXubrlbGP5NG9_cutdf7k-tMOKP8Tsqr4gb2wDV
       spinner.classList.remove('d-none');
       btnText.textContent = 'Submitting...';
       const formData = new FormData(form);
-      const webhookURL = "https://script.google.com/macros/s/AKfycbzXubrlbGP5NG9_cutdf7k-tMOKP8Tsqr4gb2wDVQOcerSw8U1NyB66pL4iVxRuDSeTOA/exec";
+      const webhookURL = "https://script.google.com/macros/s/AKfycbzfPWVozGWc-sk30paZztvb8PC6eQmdkKltPiYbAA24lJuvkNgeeAXrxG83N19Kz0rT1g/exec";
       try {
         const response = await fetch(webhookURL, { method: "POST", body: formData });
         if (response.ok) {
