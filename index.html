@@ -110,9 +110,18 @@ https://script.google.com/macros/s/AKfycbzXubrlbGP5NG9_cutdf7k-tMOKP8Tsqr4gb2wDV
             <label for="bankName">Bank Name</label>
           </div>
           <div class="col-md-6 form-floating">
-            <input name="accountNo" id="accountNo" class="form-control" required pattern="\d{9,18}" title="9–18 digits" />
+            <input name="accountNo" id="accountNo" class="form-control" required pattern="\d{9,18}" title="9–18 digits" required type="password"/>
             <label for="accountNo">Account No</label>
+              <button type="button" onclick="toggleAccountVisibility()" style="position:absolute; top:10px; right:10px; background:none; border:none;">
+    👁️
+  </button>
           </div>
+          <script>
+function toggleAccountVisibility() {
+  const input = document.getElementById("accountNo");
+  input.type = input.type === "password" ? "text" : "password";
+}
+</script>
           <div class="col-md-6 form-floating">
             <input name="ifsc" id="ifsc" class="form-control" required pattern="^[A-Z]{4}0[A-Z0-9]{6}$" title="Format: SBIN0001234" />
             <label for="ifsc">IFSC Code</label>
